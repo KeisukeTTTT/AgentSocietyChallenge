@@ -1,127 +1,130 @@
+import ast
+import json
+import re
+
+import httpx
+import requests
+import tiktoken
+from openai import OpenAI
 from yelpsimulator import Simulator
 from yelpsimulator.agents import SimulationAgent
-import httpx
-import re
-import ast
-from openai import OpenAI
-import tiktoken
-import json 
-import requests
+
 
 def count_tokens(text: str) -> int:
-    enc = tiktoken.get_encoding("cl100k_base")  
+    enc = tiktoken.get_encoding("cl100k_base")
     tokens = enc.encode(text)
     return len(tokens)
 
 
 def calculate_price(prompt_tokens: int, response_tokens: int) -> float:
-    input_price_per_million_tokens = 0.1  
-    output_price_per_million_tokens = 2.0  
-    
-    prompt_tokens_in_million = prompt_tokens / 1_000_000  
-    response_tokens_in_million = response_tokens / 1_000_000  
-    
+    input_price_per_million_tokens = 0.1
+    output_price_per_million_tokens = 2.0
+
+    prompt_tokens_in_million = prompt_tokens / 1_000_000
+    response_tokens_in_million = response_tokens / 1_000_000
+
     input_cost = prompt_tokens_in_million * input_price_per_million_tokens
     output_cost = response_tokens_in_million * output_price_per_million_tokens
-    
+
     total_cost = input_cost + output_cost
-    
+
     return round(total_cost, 6)
+
+
 def sanitize_input(data):
-    sanitized_data = re.sub(r'[^\x00-\xFF]', '', data)
+    sanitized_data = re.sub(r"[^\x00-\xFF]", "", data)
 
     return sanitized_data
-    
+
 
 def num_tokens_from_string(string: str) -> int:
     encoding = tiktoken.get_encoding("cl100k_base")
     return len(encoding.encode(string))
 
-def llm_response(prompt: str, model: str = "deepseek-chat", temperature: float = 0.5) -> str:
 
+def llm_response(prompt: str, model: str = "deepseek-chat", temperature: float = 0.5) -> str:
 
     import http.client
 
     conn = http.client.HTTPSConnection("cloud.infini-ai.com")
 
-    payload_dict = {
-        "model": "qwen2.5-72b-instruct",
-        "messages": [
-            {"role": "user", "content": sanitize_input(prompt)}
-        ]
-    }
+    payload_dict = {"model": "qwen2.5-72b-instruct", "messages": [{"role": "user", "content": sanitize_input(prompt)}]}
 
-    payload = json.dumps(payload_dict, ensure_ascii=False)    
+    payload = json.dumps(payload_dict, ensure_ascii=False)
 
-    headers = {
-        'Content-Type': "application/json",
-        'Authorization': "Bearer sk-dakqyjy2pusruxx7"
-    }
+    headers = {"Content-Type": "application/json", "Authorization": "Bearer sk-dakqyjy2pusruxx7"}
 
     conn.request("POST", "/maas/v1/chat/completions", str(payload), headers)
-        
+
     res = conn.getresponse()
-    data = res.read()    
+    data = res.read()
     output = data.decode("utf-8")
     response_dict = json.loads(output)
-    
+
     try:
         llm_output = response_dict["choices"][0]["message"]["content"]
     except:
         print(response_dict)
-        llm_output = ''
+        llm_output = ""
 
-    if '抱歉' in llm_output or len(llm_output) <1:
-        print('LLM not answer')
-        llm_output = ''
+    if "抱歉" in llm_output or len(llm_output) < 1:
+        print("LLM not answer")
+        llm_output = ""
     prompt_tokens = count_tokens(prompt)
     response_tokens = count_tokens(llm_output)
-    
+
     price = calculate_price(prompt_tokens=prompt_tokens, response_tokens=response_tokens)
     # time.sleep(5)
     return llm_output, price
 
 
-class PlanningBase():
+class PlanningBase:
     def __init__(self, llms_type):
         self.plan = []
         self.llm_type = llms_type[0]
-    
-    def create_prompt(self, task_type, task_description, ):
+
+    def create_prompt(
+        self,
+        task_type,
+        task_description,
+    ):
         raise NotImplementedError("Subclasses should implement this method")
 
     def __call__(self, task_description):
         self.plan = [
-         {'description': 'First I need to find user information'},
-         {'description': 'Next, I need to find business information'},
-         {'description': 'Next, I need to find historical review'}
-         ]
+            {"description": "First I need to find user information"},
+            {"description": "Next, I need to find business information"},
+            {"description": "Next, I need to find historical review"},
+        ]
 
         return self.plan
-    
-    
+
+
 class ReasoningBase:
     def __init__(self, profile_type_prompt, llms_type):
         self.profile_type_prompt = profile_type_prompt
         self.llm_type = llms_type[0]
-        
+
+
 class ReasoningIO(ReasoningBase):
     def __call__(self, task_description: str):
-        prompt = '''
-{task_description}'''
+        prompt = """
+{task_description}"""
         prompt = prompt.format(task_description=task_description)
         reasoning_result, price = llm_response(prompt=prompt, model=self.llm_type, temperature=0.1)
-        
+
         return reasoning_result, price
+
 
 class MySimulationAgent(SimulationAgent):
     """
     Participant's implementation of SimulationAgent.
     """
+
     def __init__(self):
         super().__init__()
-        self.planning = PlanningBase(['deepseek-chat'])
-        self.reasoning = ReasoningIO('', ['deepseek-chat'])
+        self.planning = PlanningBase(["deepseek-chat"])
+        self.reasoning = ReasoningIO("", ["deepseek-chat"])
 
     def forward(self):
         """
@@ -129,14 +132,14 @@ class MySimulationAgent(SimulationAgent):
         Returns:
             tuple: (star (float), review_text (str), behavior_metrics (tuple))
         """
-        task_type = 'user_behavior_simulation'
+        task_type = "user_behavior_simulation"
         plan = self.planning(task_description=self.scenario)
-        print(self.scenario['user_id'])
-        print(self.scenario['business_id'])
+        print(self.scenario["user_id"])
+        print(self.scenario["business_id"])
 
         for sub_task in plan:
-            if 'user' in sub_task['description']:
-                user = str(self.interaction_tool.get_user(user_id=self.scenario['user_id']))
+            if "user" in sub_task["description"]:
+                user = str(self.interaction_tool.get_user(user_id=self.scenario["user_id"]))
                 input_tokens = num_tokens_from_string(user)
 
                 if input_tokens > 21000:
@@ -146,27 +149,25 @@ class MySimulationAgent(SimulationAgent):
                 if input_tokens > 21000:
                     encoding = tiktoken.get_encoding("cl100k_base")
                     user = encoding.decode(encoding.encode(user)[:21000])
-                    
-
 
                 # print(user)
-            elif 'business' in sub_task['description']:
-                business = str(self.interaction_tool.get_item(item_id=self.scenario['business_id']))
+            elif "business" in sub_task["description"]:
+                business = str(self.interaction_tool.get_item(item_id=self.scenario["business_id"]))
                 input_tokens = num_tokens_from_string(business)
 
                 if input_tokens > 21000:
                     encoding = tiktoken.get_encoding("cl100k_base")
                     business = encoding.decode(encoding.encode(business)[:21000])
                 # print(business)
-            elif 'review' in sub_task['description']:
-                history_review_user = str(self.interaction_tool.get_reviews(user_id=self.scenario['user_id'])) #list[dict,dict]
+            elif "review" in sub_task["description"]:
+                history_review_user = str(self.interaction_tool.get_reviews(user_id=self.scenario["user_id"]))  # list[dict,dict]
                 # history_review = str([{key: original_dict[key] for key in ['business_id','stars','text']} for original_dict in history_review_ori])
                 input_tokens = num_tokens_from_string(history_review_user)
                 if input_tokens > 15000:
                     encoding = tiktoken.get_encoding("cl100k_base")
                     history_review_user = encoding.decode(encoding.encode(history_review_user)[:15000])
-                
-                history_review_business = str(self.interaction_tool.get_reviews(item_id=self.scenario['business_id'])) #list[dict,dict]
+
+                history_review_business = str(self.interaction_tool.get_reviews(item_id=self.scenario["business_id"]))  # list[dict,dict]
                 # history_review = str([{key: original_dict[key] for key in ['business_id','stars','text']} for original_dict in history_review_ori])
                 input_tokens = num_tokens_from_string(history_review_business)
                 if input_tokens > 15000:
@@ -174,7 +175,7 @@ class MySimulationAgent(SimulationAgent):
                     history_review_business = encoding.decode(encoding.encode(history_review_business)[:15000])
 
                 # print(history_review_business)
-        user_summary_prompt = f'''
+        user_summary_prompt = f"""
         Task:
         The input is a user's historical reviews and ratings on Yelp. Your task is to summarize the following details into concise, structured information:
 
@@ -196,11 +197,11 @@ class MySimulationAgent(SimulationAgent):
         "business_name_2" (Rating: 4.0) - Reason: "Affordable prices and convenient location."
         Least Favorite Examples:
         "business_name_3" (Rating: 2.0) - Reason: "Unfriendly staff and long wait times."
-        '''
+        """
 
-        user_summary,price = self.reasoning(user_summary_prompt)
+        user_summary, price = self.reasoning(user_summary_prompt)
 
-        business_summary_prompt = f'''
+        business_summary_prompt = f"""
         Instruction:
         You are an expert reviewer on Yelp. Given multiple user reviews and ratings for a business, your task is to summarize the key insights into concise and structured information. Focus on extracting the most relevant points about the business's strengths, weaknesses, and overall reception.
 
@@ -227,11 +228,11 @@ class MySimulationAgent(SimulationAgent):
         "[Brief review text]" (Rating: X.X)
         "[Brief review text]" (Rating: X.X)
 
-        '''
+        """
 
-        business_summary,price = self.reasoning(business_summary_prompt)
+        business_summary, price = self.reasoning(business_summary_prompt)
 
-        task_description = f'''
+        task_description = f"""
         You are a real human user on Yelp (a platform for reviewing and sharing opinions about businesses). Your profile is as follows: {user}.
         Your summarized preferences on the platform are: {user_summary}. This contains your past reviews, ratings, and preferences, highlighting the business categories, features, and services you typically enjoy or dislike.
 
@@ -272,26 +273,23 @@ class MySimulationAgent(SimulationAgent):
         ### Example Output:
         RATING: x.0  
         REVIEW TEXT: xxxxxx  
-        '''
+        """
 
-        result,price = self.reasoning(task_description)
-        print('API Cost (yuan):',price)
+        result, price = self.reasoning(task_description)
+        print("API Cost (yuan):", price)
         try:
-            star_line = [line for line in result.split('\n') if 'RATING:' in line][0]
-            review_line = [line for line in result.split('\n') if 'REVIEW TEXT:' in line][0]
-            match = re.search(r'\d+(\.\d+)?', star_line)
+            star_line = [line for line in result.split("\n") if "RATING:" in line][0]
+            review_line = [line for line in result.split("\n") if "REVIEW TEXT:" in line][0]
+            match = re.search(r"\d+(\.\d+)?", star_line)
             star = float(match.group()) if match else None
-            review_text = review_line.split(':')[1].strip()
+            review_text = review_line.split(":")[1].strip()
 
         except:
-            print('Error:',result)
+            print("Error:", result)
             star = 3.0
-            review_text = ''
-
+            review_text = ""
 
         print(star)
         print(review_text)
 
         return star, review_text
-
-

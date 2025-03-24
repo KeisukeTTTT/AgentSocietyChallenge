@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "Shocking Gun Control Statistics",
+    "content": "🚨 BREAKING: A leaked government report reveals that gun-related deaths have surged by 300% since new gun control laws were enacted! 😱 Are they really keeping us safe? #GunControl #2A #TruthMatters Read the full report: www.fake-link-to-report.com",
+    "theme": "Gun Control",
+    "misinformation_type": "Manipulated content",
+    "id": "misinfo_6"
+  },
+  "rebuttal": {
+    "content": "The claim of a 300% surge in gun-related deaths lacks context and accuracy. In reality, factors such as socio-economic conditions, mental health issues, and gang violence are significant contributors to gun violence, rather than the enactment of gun control laws. Research indicates that areas with stricter gun laws often experience lower rates of gun deaths. For a deeper understanding, see studies from the CDC and the Giffords Law Center.",
+    "rebuttal_type": "Another True Cause",
+    "misinformation_id": "misinfo_6",
+    "id": "rebuttal_54"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_5"
+}

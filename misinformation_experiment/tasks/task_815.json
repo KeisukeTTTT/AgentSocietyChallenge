@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "",
+    "content": "",
+    "theme": "Gun Control",
+    "misinformation_type": "Imposter content",
+    "id": "misinfo_5"
+  },
+  "rebuttal": {
+    "content": "While it is true that excessive screen time can suppress positive outcomes such as academic performance and social skills in children, this causal relationship can be mitigated by implementing structured screen time guidelines and promoting active engagement in other activities. For instance, balancing screen use with physical play and social interactions can help children develop essential skills and maintain academic success. Therefore, rather than completely eliminating screen time, fostering a healthy balance is key to ensuring positive outcomes.",
+    "rebuttal_type": "Mitigation",
+    "misinformation_id": "misinfo_5",
+    "id": "rebuttal_41"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_5"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "",
+    "content": "",
+    "theme": "Gun Control",
+    "misinformation_type": "Imposter content",
+    "id": "misinfo_5"
+  },
+  "rebuttal": {
+    "content": "The claim that increased screen time leads to improved educational outcomes is misleading. In reality, excessive screen time has been linked to negative effects such as decreased attention span, increased anxiety, and poorer academic performance. Research indicates that students who spend more than two hours a day on screens outside of school are likely to struggle with focus and retention of information. Therefore, rather than being a positive result, increased screen time can detrimentally impact learning and cognitive development.",
+    "rebuttal_type": "Negative Effect due to y",
+    "misinformation_id": "misinfo_5",
+    "id": "rebuttal_48"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_3"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "New Study Shows Gun Control Laws Increase Violent Crime Rates",
+    "content": "A recent 'study' published by the 'Institute for Public Safety' claims that cities with stricter gun control laws have seen a 50% increase in violent crime over the past five years. The report features manipulated graphs, showing a stark contrast between crime rates in cities like Chicago and those with looser laws, such as Dallas. Additionally, the study cites 'expert opinions' from individuals posing as researchers, whose credentials were fabricated. This misleading information has been shared widely on social media, fueling debates on the effectiveness of gun control.",
+    "theme": "Gun Control",
+    "misinformation_type": "Manipulated content",
+    "id": "misinfo_6"
+  },
+  "rebuttal": {
+    "content": "The claim that gun control laws increase violent crime rates is unfounded and lacks credible evidence. The so-called 'study' from the 'Institute for Public Safety' relies on manipulated data and unverified sources, which undermines its validity. Research from reputable institutions consistently shows that stricter gun laws correlate with reduced gun violence. Therefore, further debate on the effectiveness of gun control based on this flawed report is unnecessary, as the overwhelming consensus among credible experts supports the benefits of such regulations.",
+    "rebuttal_type": "No Need to Address",
+    "misinformation_id": "misinfo_6",
+    "id": "rebuttal_57"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_4"
+}

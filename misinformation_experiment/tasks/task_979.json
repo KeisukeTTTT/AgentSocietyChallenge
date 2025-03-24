@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "",
+    "content": "",
+    "theme": "Gun Control",
+    "misinformation_type": "Imposter content",
+    "id": "misinfo_5"
+  },
+  "rebuttal": {
+    "content": "While some may argue that implementing stricter regulations on social media platforms stifles free speech, it's essential to recognize that these regulations can promote healthier online discourse. By reducing the spread of misinformation and harmful content, we create a safer environment for users, especially vulnerable populations like children and marginalized communities. This perspective highlights that responsible regulation does not equate to censorship; instead, it fosters a more informed public and encourages constructive dialogue, ultimately benefiting society as a whole.",
+    "rebuttal_type": "Positive Effects of a Different Perspective from y 1",
+    "misinformation_id": "misinfo_5",
+    "id": "rebuttal_49"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_9"
+}

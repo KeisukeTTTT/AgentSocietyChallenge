@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "The Hidden Truth About Gun Control",
+    "content": "Did you know that states with strict gun control laws saw a 30% increase in violent crime last year? 🤯 Don't let the media fool you! More laws don't equal more safety! We need to protect our rights! #GunControl #2A #TruthMatters https://bit.ly/2AProtect",
+    "theme": "Gun Control",
+    "misinformation_type": "Misleading content",
+    "id": "misinfo_2"
+  },
+  "rebuttal": {
+    "content": "The claim that strict gun control laws lead to a 30% increase in violent crime lacks credible evidence. Research shows that states with stronger gun laws often experience lower rates of gun violence. For instance, a study by the Giffords Law Center found that states with comprehensive gun laws have lower firearm homicide rates. It's important to rely on data from reputable sources rather than anecdotal claims. More laws can correlate with increased safety, not the opposite.",
+    "rebuttal_type": "No Evidence",
+    "misinformation_id": "misinfo_2",
+    "id": "rebuttal_13"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_1"
+}

@@ -1,70 +1,69 @@
+import json
+import logging
+
 from websocietysimulator import Simulator
 from websocietysimulator.agent import SimulationAgent
-import json 
-from websocietysimulator.llm import LLMBase, InfinigenceLLM
-from websocietysimulator.agent.modules.planning_modules import PlanningBase 
-from websocietysimulator.agent.modules.reasoning_modules import ReasoningBase
 from websocietysimulator.agent.modules.memory_modules import MemoryDILU
-import logging
+from websocietysimulator.agent.modules.planning_modules import PlanningBase
+from websocietysimulator.agent.modules.reasoning_modules import ReasoningBase
+from websocietysimulator.llm import InfinigenceLLM, LLMBase
+
 logging.basicConfig(level=logging.INFO)
+
 
 class PlanningBaseline(PlanningBase):
     """Inherit from PlanningBase"""
-    
+
     def __init__(self, llm):
         """Initialize the planning module"""
         super().__init__(llm=llm)
-    
+
     def __call__(self, task_description):
         """Override the parent class's __call__ method"""
         self.plan = [
             {
-                'description': 'First I need to find user information',
-                'reasoning instruction': 'None', 
-                'tool use instruction': {task_description['user_id']}
+                "description": "First I need to find user information",
+                "reasoning instruction": "None",
+                "tool use instruction": {task_description["user_id"]},
             },
             {
-                'description': 'Next, I need to find business information',
-                'reasoning instruction': 'None',
-                'tool use instruction': {task_description['item_id']}
-            }
+                "description": "Next, I need to find business information",
+                "reasoning instruction": "None",
+                "tool use instruction": {task_description["item_id"]},
+            },
         ]
         return self.plan
 
 
 class ReasoningBaseline(ReasoningBase):
     """Inherit from ReasoningBase"""
-    
+
     def __init__(self, profile_type_prompt, llm):
         """Initialize the reasoning module"""
         super().__init__(profile_type_prompt=profile_type_prompt, memory=None, llm=llm)
-        
+
     def __call__(self, task_description: str):
         """Override the parent class's __call__ method"""
-        prompt = '''
-{task_description}'''
+        prompt = """
+{task_description}"""
         prompt = prompt.format(task_description=task_description)
-        
+
         messages = [{"role": "user", "content": prompt}]
-        reasoning_result = self.llm(
-            messages=messages,
-            temperature=0.0,
-            max_tokens=1000
-        )
-        
+        reasoning_result = self.llm(messages=messages, temperature=0.0, max_tokens=1000)
+
         return reasoning_result
 
 
 class MySimulationAgent(SimulationAgent):
     """Participant's implementation of SimulationAgent."""
-    
+
     def __init__(self, llm: LLMBase):
         """Initialize MySimulationAgent"""
         super().__init__(llm=llm)
         self.planning = PlanningBaseline(llm=self.llm)
-        self.reasoning = ReasoningBaseline(profile_type_prompt='', llm=self.llm)
+        self.reasoning = ReasoningBaseline(profile_type_prompt="", llm=self.llm)
         self.memory = MemoryDILU(llm=self.llm)
-        
+
     def workflow(self):
         """
         Simulate user behavior
@@ -75,17 +74,17 @@ class MySimulationAgent(SimulationAgent):
             plan = self.planning(task_description=self.task)
 
             for sub_task in plan:
-                if 'user' in sub_task['description']:
-                    user = str(self.interaction_tool.get_user(user_id=self.task['user_id']))
-                elif 'business' in sub_task['description']:
-                    business = str(self.interaction_tool.get_item(item_id=self.task['item_id']))
-            reviews_item = self.interaction_tool.get_reviews(item_id=self.task['item_id'])
+                if "user" in sub_task["description"]:
+                    user = str(self.interaction_tool.get_user(user_id=self.task["user_id"]))
+                elif "business" in sub_task["description"]:
+                    business = str(self.interaction_tool.get_item(item_id=self.task["item_id"]))
+            reviews_item = self.interaction_tool.get_reviews(item_id=self.task["item_id"])
             for review in reviews_item:
-                review_text = review['text']
-                self.memory(f'review: {review_text}')
-            reviews_user = self.interaction_tool.get_reviews(user_id=self.task['user_id'])
+                review_text = review["text"]
+                self.memory(f"review: {review_text}")
+            reviews_user = self.interaction_tool.get_reviews(user_id=self.task["user_id"])
             review_similar = self.memory(f'{reviews_user[0]["text"]}')
-            task_description = f'''
+            task_description = f"""
             You are a real human user on Yelp, a platform for crowd-sourced business reviews. Here is your Yelp profile and review history: {user}
 
             You need to write a review for this business: {business}
@@ -114,35 +113,30 @@ class MySimulationAgent(SimulationAgent):
             Format your response exactly as follows:
             stars: [your rating]
             review: [your review]
-            '''
+            """
             result = self.reasoning(task_description)
-            
-            try:
-                stars_line = [line for line in result.split('\n') if 'stars:' in line][0]
-                review_line = [line for line in result.split('\n') if 'review:' in line][0]
-            except:
-                print('Error:', result)
 
-            stars = float(stars_line.split(':')[1].strip())
-            review_text = review_line.split(':')[1].strip()
+            try:
+                stars_line = [line for line in result.split("\n") if "stars:" in line][0]
+                review_line = [line for line in result.split("\n") if "review:" in line][0]
+            except:
+                print("Error:", result)
+
+            stars = float(stars_line.split(":")[1].strip())
+            review_text = review_line.split(":")[1].strip()
 
             if len(review_text) > 512:
                 review_text = review_text[:512]
-                
-            return {
-                "stars": stars,
-                "review": review_text
-            }
+
+            return {"stars": stars, "review": review_text}
         except Exception as e:
             print(f"Error in workflow: {e}")
-            return {
-                "stars": 0,
-                "review": ""
-            }
+            return {"stars": 0, "review": ""}
+
 
 if __name__ == "__main__":
     # Set the data
-    task_set = "amazon" # "goodreads" or "yelp"
+    task_set = "amazon"  # "goodreads" or "yelp"
     simulator = Simulator(data_dir="your data dir", device="gpu", cache=True)
     simulator.set_task_and_groundtruth(task_dir=f"./track1/{task_set}/tasks", groundtruth_dir=f"./track1/{task_set}/groundtruth")
 
@@ -153,10 +147,10 @@ if __name__ == "__main__":
     # Run the simulation
     # If you don't set the number of tasks, the simulator will run all tasks.
     outputs = simulator.run_simulation(number_of_tasks=None, enable_threading=True, max_workers=10)
-    
+
     # Evaluate the agent
-    evaluation_results = simulator.evaluate()       
-    with open(f'./evaluation_results_track1_{task_set}.json', 'w') as f:
+    evaluation_results = simulator.evaluate()
+    with open(f"./evaluation_results_track1_{task_set}.json", "w") as f:
         json.dump(evaluation_results, f, indent=4)
 
     # Get evaluation history

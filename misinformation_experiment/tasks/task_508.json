@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "Shocking Gun Control Statistics",
+    "content": "🚨 BREAKING: A leaked government report reveals that gun-related deaths have surged by 300% since new gun control laws were enacted! 😱 Are they really keeping us safe? #GunControl #2A #TruthMatters Read the full report: www.fake-link-to-report.com",
+    "theme": "Gun Control",
+    "misinformation_type": "Manipulated content",
+    "id": "misinfo_6"
+  },
+  "rebuttal": {
+    "content": "While the claim that gun-related deaths surged by 300% is alarming, it's essential to consider that data can be influenced by various factors. Studies indicate that increased gun control can lead to decreased gun violence over time, even if initial statistics appear concerning. For instance, research by the RAND Corporation shows that comprehensive gun laws can reduce firearm homicides. More context is crucial for understanding these statistics.  \n\nSource: https://www.rand.org/research/gun-policy-2020.html \nSource: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6413085/",
+    "rebuttal_type": "Mitigation",
+    "misinformation_id": "misinfo_6",
+    "id": "rebuttal_51"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_3"
+}

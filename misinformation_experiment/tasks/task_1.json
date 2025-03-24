@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "New Study Reveals Shocking Gun Control Stats!",
+    "content": "📊 BREAKING: A recent study shows that 99% of gun owners believe that increasing gun control will lead to a 300% increase in crime! 😱 If we ban all guns, we might as well hand out swords! ⚔️ Let’s keep our freedoms intact! #GunControl #FreedomOrSwords #WakeUpAmerica",
+    "theme": "Gun Control",
+    "misinformation_type": "Satire/parody",
+    "id": "misinfo_1"
+  },
+  "rebuttal": {
+    "content": "While the tweet claims that 99% of gun owners believe increased gun control leads to a 300% crime increase, studies show that perceptions of gun control effects vary widely. Research often indicates that stricter gun laws can correlate with reduced gun violence, mitigated by factors like community programs and socioeconomic conditions. Thus, the relationship isn't universally causal. For more context on gun laws and crime rates, see: https://www.rand.org/research/gun-policy-analytics.html and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5558367/",
+    "rebuttal_type": "Mitigation",
+    "misinformation_id": "misinfo_1",
+    "id": "rebuttal_1"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_1"
+}

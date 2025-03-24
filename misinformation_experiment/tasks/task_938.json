@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "",
+    "content": "",
+    "theme": "Gun Control",
+    "misinformation_type": "Imposter content",
+    "id": "misinfo_5"
+  },
+  "rebuttal": {
+    "content": "The claim that our current recycling efforts are insufficient is misleading. Research shows that existing recycling programs are effectively diverting millions of tons of waste from landfills each year, significantly reducing environmental impact. Furthermore, many communities have already implemented advanced waste management strategies that enhance recycling efficiency. Instead of pushing for drastic changes, it’s more beneficial to focus on improving and promoting these existing systems, which are already making a positive difference.",
+    "rebuttal_type": "No Need to Address",
+    "misinformation_id": "misinfo_5",
+    "id": "rebuttal_47"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_8"
+}

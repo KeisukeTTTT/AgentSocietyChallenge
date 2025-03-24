@@ -1,25 +1,28 @@
-import json
 import logging
-import numpy as np
-from typing import List, Dict, Union
 from dataclasses import dataclass
-from nltk.sentiment import SentimentIntensityAnalyzer
-from transformers import pipeline
-from sentence_transformers import SentenceTransformer
-from scipy.spatial import distance
-import torch
+from typing import Any, Dict, List, Union
+
 import nltk
+import numpy as np
+import torch
+from nltk.sentiment import SentimentIntensityAnalyzer
+from scipy.spatial import distance
+from sentence_transformers import SentenceTransformer
+from transformers import pipeline
+
 
 def ensure_nltk_data():
     """Ensure NLTK data is available"""
     try:
-        nltk.data.find('sentiment/vader_lexicon.zip')
+        nltk.data.find("sentiment/vader_lexicon.zip")
     except LookupError:
         logging.warning("VADER lexicon not found, downloading...")
-        nltk.download('vader_lexicon', quiet=True)
+        nltk.download("vader_lexicon", quiet=True)
+
 
 # Check NLTK data availability at import time
 ensure_nltk_data()
+
 
 @dataclass
 class RecommendationMetrics:
@@ -32,14 +35,17 @@ class RecommendationMetrics:
     top_3_hits: int
     top_5_hits: int
 
+
 @dataclass
 class SimulationMetrics:
     preference_estimation: float
     review_generation: float
     overall_quality: float
 
+
 class BaseEvaluator:
     """Base class for evaluation tools"""
+
     def __init__(self):
         self.metrics_history: List[Union[RecommendationMetrics, SimulationMetrics]] = []
 
@@ -51,27 +57,24 @@ class BaseEvaluator:
         """Get all historical metrics"""
         return self.metrics_history
 
+
 class RecommendationEvaluator(BaseEvaluator):
     """Evaluator for recommendation tasks"""
-    
+
     def __init__(self):
         super().__init__()
         self.n_values = [1, 3, 5]  # 预定义的n值数组
 
-    def calculate_hr_at_n(
-        self,
-        ground_truth: List[str],
-        predictions: List[List[str]]
-    ) -> RecommendationMetrics:
+    def calculate_hr_at_n(self, ground_truth: List[str], predictions: List[List[str]]) -> RecommendationMetrics:
         """Calculate Hit Rate at different N values"""
         total = len(ground_truth)
         hits = {n: 0 for n in self.n_values}
-        
+
         for gt, pred in zip(ground_truth, predictions):
             for n in self.n_values:
                 if gt in pred[:n]:
                     hits[n] += 1
-        
+
         top_1_hit_rate = hits[1] / total if total > 0 else 0
         top_3_hit_rate = hits[3] / total if total > 0 else 0
         top_5_hit_rate = hits[5] / total if total > 0 else 0
@@ -84,34 +87,27 @@ class RecommendationEvaluator(BaseEvaluator):
             total_scenarios=total,
             top_1_hits=hits[1],
             top_3_hits=hits[3],
-            top_5_hits=hits[5]
+            top_5_hits=hits[5],
         )
-        
+
         self.save_metrics(metrics)
         return metrics
 
+
 class SimulationEvaluator(BaseEvaluator):
     """Evaluator for simulation tasks"""
-    
+
     def __init__(self, device: str = "auto"):
         super().__init__()
         self.device = self._get_device(device)
-        
+
         pipeline_device = self.device
-        st_device = "cuda" if self.device == 0 else "cpu" 
-        
+        st_device = "cuda" if self.device == 0 else "cpu"
+
         self.sia = SentimentIntensityAnalyzer()
-        self.emotion_classifier = pipeline(
-            "text-classification",
-            model="cardiffnlp/twitter-roberta-base-emotion",
-            top_k=5,
-            device=pipeline_device
-        )
-        self.topic_model = SentenceTransformer(
-            'paraphrase-MiniLM-L6-v2',
-            device=st_device
-        )
-        
+        self.emotion_classifier = pipeline("text-classification", model="cardiffnlp/twitter-roberta-base-emotion", top_k=5, device=pipeline_device)
+        self.topic_model = SentenceTransformer("paraphrase-MiniLM-L6-v2", device=st_device)
+
     def _get_device(self, device: str) -> int:
         """Parse device from string"""
         if device == "gpu":
@@ -127,15 +123,11 @@ class SimulationEvaluator(BaseEvaluator):
         else:
             raise ValueError("Device type must be 'cpu', 'gpu' or 'auto'")
 
-    def calculate_metrics(
-        self,
-        simulated_data: List[Dict],
-        real_data: List[Dict]
-    ) -> SimulationMetrics:
+    def calculate_metrics(self, simulated_data: List[Dict], real_data: List[Dict]) -> SimulationMetrics:
         """Calculate all simulation metrics"""
         # Calculate star error
-        simulated_stars = [item['stars'] for item in simulated_data]
-        real_stars = [item['stars'] for item in real_data]
+        simulated_stars = [item["stars"] for item in simulated_data]
+        real_stars = [item["stars"] for item in real_data]
         star_error = 0
         for sim_star, real_star in zip(simulated_stars, real_stars):
             if sim_star > 5:
@@ -147,33 +139,22 @@ class SimulationEvaluator(BaseEvaluator):
         preference_estimation = 1 - star_error
 
         # Calculate review metrics
-        simulated_reviews = [item['review'] for item in simulated_data]
-        real_reviews = [item['review'] for item in real_data]
-        review_details = self._calculate_review_metrics(
-            simulated_reviews,
-            real_reviews
-        )
+        simulated_reviews = [item["review"] for item in simulated_data]
+        real_reviews = [item["review"] for item in real_data]
+        review_details = self._calculate_review_metrics(simulated_reviews, real_reviews)
 
-        sentiment_error = review_details['sentiment_error']
-        emotion_error = review_details['emotion_error']
-        topic_error = review_details['topic_error']
+        sentiment_error = review_details["sentiment_error"]
+        emotion_error = review_details["emotion_error"]
+        topic_error = review_details["topic_error"]
         review_generation = 1 - (sentiment_error * 0.25 + emotion_error * 0.25 + topic_error * 0.5)
         overall_quality = (preference_estimation + review_generation) / 2
 
-        metrics = SimulationMetrics(
-            preference_estimation=preference_estimation,
-            review_generation=review_generation,
-            overall_quality=overall_quality
-        )
+        metrics = SimulationMetrics(preference_estimation=preference_estimation, review_generation=review_generation, overall_quality=overall_quality)
 
         self.save_metrics(metrics)
         return metrics
 
-    def _calculate_review_metrics(
-        self,
-        simulated_reviews: List[str],
-        real_reviews: List[str]
-    ) -> Dict[str, float]:
+    def _calculate_review_metrics(self, simulated_reviews: List[str], real_reviews: List[str]) -> Dict[str, float]:
         """Calculate detailed review metrics between two texts"""
         # sentiment analysis
         sentiment_error = []
@@ -181,8 +162,8 @@ class SimulationEvaluator(BaseEvaluator):
         topic_error = []
         for simulated_review, real_review in zip(simulated_reviews, real_reviews):
             # sentiment analysis
-            sentiment1 = self.sia.polarity_scores(simulated_review)['compound']
-            sentiment2 = self.sia.polarity_scores(real_review)['compound']
+            sentiment1 = self.sia.polarity_scores(simulated_review)["compound"]
+            sentiment2 = self.sia.polarity_scores(real_review)["compound"]
             sentiment_error_single = abs(sentiment1 - sentiment2) / 2
             sentiment_error.append(sentiment_error_single)
 
@@ -207,27 +188,93 @@ class SimulationEvaluator(BaseEvaluator):
         emotion_error = np.mean(emotion_error)
         topic_error = np.mean(topic_error)
         return {
-            'sentiment_error': sentiment_error,
-            'emotion_error': emotion_error,
-            'topic_error': topic_error,
+            "sentiment_error": sentiment_error,
+            "emotion_error": emotion_error,
+            "topic_error": topic_error,
         }
 
-    def _calculate_emotion_error(
-        self,
-        emotions1: List[Dict],
-        emotions2: List[Dict]
-    ) -> float:
+    def _calculate_emotion_error(self, emotions1: List[Dict], emotions2: List[Dict]) -> float:
         """Calculate similarity between two emotion distributions"""
         # Convert emotions to vectors
-        emotion_dict1 = {e['label']: e['score'] for e in emotions1}
-        emotion_dict2 = {e['label']: e['score'] for e in emotions2}
-        
+        emotion_dict1 = {e["label"]: e["score"] for e in emotions1}
+        emotion_dict2 = {e["label"]: e["score"] for e in emotions2}
+
         # Get all unique emotions
         all_emotions = set(emotion_dict1.keys()) | set(emotion_dict2.keys())
-        
+
         # Create vectors
         vec1 = np.array([emotion_dict1.get(e, 0) for e in all_emotions])
         vec2 = np.array([emotion_dict2.get(e, 0) for e in all_emotions])
 
         # Calculate emotion error
         return float(np.mean(np.abs(vec1 - vec2)))
+
+
+class CommunityNoteEvaluator(BaseEvaluator):
+    """
+    Evaluator for community note evaluation tasks.
+    """
+
+    def __init__(self):
+        """
+        Initialize the community note evaluator.
+        """
+        pass
+
+    def calculate_metrics(self, simulated_data: List[Dict], real_data: List[Dict]) -> Any:
+        """
+        Calculate metrics for community note evaluation.
+        Args:
+            simulated_data: List of simulated evaluations.
+            real_data: List of real evaluations (ground truth).
+        Returns:
+            EvaluationMetrics object containing the metrics.
+        """
+        from dataclasses import dataclass
+
+        @dataclass
+        class EvaluationMetrics:
+            accuracy: float = 0.0
+            reason_overlap: float = 0.0
+            explanation_similarity: float = 0.0
+
+        metrics = EvaluationMetrics()
+
+        # Calculate accuracy of evaluation ratings
+        correct_evaluations = 0
+        total_reason_overlap = 0.0
+        total_explanation_similarity = 0.0
+
+        for sim, real in zip(simulated_data, real_data):
+            # Check if evaluation matches
+            if sim["evaluation"] == real["evaluation"]:
+                correct_evaluations += 1
+
+            # Calculate reason overlap
+            sim_reasons = set(sim.get("reasons", []))
+            real_reasons = set(real.get("reasons", []))
+
+            if sim_reasons and real_reasons:
+                overlap = len(sim_reasons.intersection(real_reasons))
+                total_reason_overlap += overlap / max(len(sim_reasons), len(real_reasons))
+
+            # Simple text similarity for explanations
+            # In a real implementation, you might use embedding similarity
+            sim_explanation = sim.get("explanation", "").lower()
+            real_explanation = real.get("explanation", "").lower()
+
+            if sim_explanation and real_explanation:
+                # Simple word overlap as a proxy for similarity
+                sim_words = set(sim_explanation.split())
+                real_words = set(real_explanation.split())
+                if sim_words and real_words:
+                    word_overlap = len(sim_words.intersection(real_words))
+                    total_explanation_similarity += word_overlap / max(len(sim_words), len(real_words))
+
+        # Calculate final metrics
+        if len(simulated_data) > 0:
+            metrics.accuracy = correct_evaluations / len(simulated_data)
+            metrics.reason_overlap = total_reason_overlap / len(simulated_data)
+            metrics.explanation_similarity = total_explanation_similarity / len(simulated_data)
+
+        return metrics

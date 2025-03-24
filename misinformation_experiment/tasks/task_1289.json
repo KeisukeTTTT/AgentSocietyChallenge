@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "",
+    "content": "",
+    "theme": "Gun Control",
+    "misinformation_type": "Fabricated content",
+    "id": "misinfo_7"
+  },
+  "rebuttal": {
+    "content": "The claim that exercise suppresses appetite is misleading. In fact, engaging in regular physical activity promotes the release of hormones like ghrelin, which can enhance appetite regulation. This hormonal response can lead to increased energy expenditure and ultimately supports better weight management. Therefore, instead of suppressing appetite, exercise actually fosters a balanced approach to hunger and promotes healthy eating habits, making it a crucial component of maintaining a healthy lifestyle.",
+    "rebuttal_type": "Missing Mechanism 1",
+    "misinformation_id": "misinfo_7",
+    "id": "rebuttal_65"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_9"
+}

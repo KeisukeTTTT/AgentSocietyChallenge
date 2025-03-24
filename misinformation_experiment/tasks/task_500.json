@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "Urgent Update on Gun Control Laws",
+    "content": "BREAKING: A new report from the CDC claims that 80% of gun owners support mandatory background checks! 📊 This shocking data is being buried by the NRA! We must act NOW to ensure our safety! Sign the petition here: www.change.org/guncontrol #GunControlNow #SafetyFirst",
+    "theme": "Gun Control",
+    "misinformation_type": "Imposter content",
+    "id": "misinfo_5"
+  },
+  "rebuttal": {
+    "content": "While the tweet claims that 80% of gun owners support mandatory background checks, this figure lacks context. For instance, surveys show varied support depending on how questions are framed. Additionally, the NRA does represent many gun owners who oppose such measures due to concerns about rights and implementation. Understanding diverse perspectives can lead to more effective discussions on gun control. It's important to consider all viewpoints before drawing conclusions.",
+    "rebuttal_type": "Positive Effects of a Different Perspective from y 2",
+    "misinformation_id": "misinfo_5",
+    "id": "rebuttal_50"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_5"
+}

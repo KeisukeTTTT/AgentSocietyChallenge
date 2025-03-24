@@ -1,5 +1,6 @@
 from typing import Dict
 
+
 class SimulationTask:
     def __init__(self, user_id: str, item_id: str):
         """
@@ -22,5 +23,5 @@ class SimulationTask:
             You are a simulation agent that simulates a user's rating and review with an item. 
             There is a user with id and an item with id. """,
             "user_id": self.user_id,
-            "item_id": self.item_id
+            "item_id": self.item_id,
         }

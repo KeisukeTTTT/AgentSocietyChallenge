@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "",
+    "content": "",
+    "theme": "Gun Control",
+    "misinformation_type": "Imposter content",
+    "id": "misinfo_5"
+  },
+  "rebuttal": {
+    "content": "The claim that exercise suppresses appetite overlooks a critical mechanism: regular physical activity increases the production of hormones like ghrelin and peptide YY, which actually promote appetite regulation. Additionally, exercise enhances metabolic rate and improves insulin sensitivity, both of which can lead to more balanced energy levels and hunger cues. Therefore, rather than suppressing appetite, exercise actively promotes a healthier relationship with food and can lead to increased energy intake when needed, supporting overall well-being.",
+    "rebuttal_type": "Missing Mechanism 1",
+    "misinformation_id": "misinfo_5",
+    "id": "rebuttal_45"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_6"
+}

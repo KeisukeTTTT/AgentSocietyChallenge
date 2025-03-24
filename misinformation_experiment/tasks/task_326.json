@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "Gun Control Myths Debunked",
+    "content": "🚨 BREAKING: Recent studies show that cities with strict gun control laws saw a 50% increase in violent crime! Don't be fooled by the media narrative. We need to protect our rights! #GunControl #2A #DefendYourRights Learn more: www.safestreets.org/studies",
+    "theme": "Gun Control",
+    "misinformation_type": "False context",
+    "id": "misinfo_4"
+  },
+  "rebuttal": {
+    "content": "The claim that cities with strict gun control laws see a 50% increase in violent crime lacks credible evidence. Research shows that gun control laws do not directly correlate with increased crime rates. For example, a study by the National Institute of Justice found no significant link between gun laws and violent crime trends. It's important to rely on verified data rather than anecdotal assertions. \n\n",
+    "rebuttal_type": "No Evidence",
+    "misinformation_id": "misinfo_4",
+    "id": "rebuttal_33"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_1"
+}

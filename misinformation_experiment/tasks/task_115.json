@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "The Hidden Truth About Gun Control",
+    "content": "Did you know that states with strict gun control laws saw a 30% increase in violent crime last year? 🤯 Don't let the media fool you! More laws don't equal more safety! We need to protect our rights! #GunControl #2A #TruthMatters https://bit.ly/2AProtect",
+    "theme": "Gun Control",
+    "misinformation_type": "Misleading content",
+    "id": "misinfo_2"
+  },
+  "rebuttal": {
+    "content": "While it's claimed that strict gun control laws correlate with increased violent crime, research indicates that other factors, such as poverty and drug-related violence, significantly influence crime rates. A study from the Center for Disease Control shows that socioeconomic factors often play a larger role in violence than gun laws alone. Focusing on reducing these underlying issues may be more effective for improving safety.  \n\nSources:  \n1. https://www.cdc.gov/violenceprevention/pdf/violence-related-factors-a.pdf  \n2. https://www.rand.org/research/gun-policy/analysis.html",
+    "rebuttal_type": "Alternative",
+    "misinformation_id": "misinfo_2",
+    "id": "rebuttal_12"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_5"
+}

@@ -1,0 +1,15 @@
+[
+    {
+        "type": "community_note_evaluation",
+        "metrics": {
+            "accuracy": 0.6,
+            "reason_overlap": 0.4333333333333333,
+            "explanation_similarity": 0.0025
+        },
+        "data_info": {
+            "evaluated_count": 10,
+            "original_simulation_count": 10,
+            "original_ground_truth_count": 101
+        }
+    }
+]

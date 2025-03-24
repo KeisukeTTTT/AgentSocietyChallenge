@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "The Shocking Truth About Gun Control and Crime Rates",
+    "content": "Did you know that in countries with strict gun control laws, crime rates have skyrocketed by an average of 50%? 🚨 The media won't show you this! Check out this shocking report: [link]. We need to wake up! #GunControlFails #ProtectOurRights #SecondAmendment",
+    "theme": "Gun Control",
+    "misinformation_type": "False connection",
+    "id": "misinfo_3"
+  },
+  "rebuttal": {
+    "content": "The claim that crime rates have skyrocketed in countries with strict gun control laws is misleading. Research indicates that many of these countries experience lower overall crime rates and fewer gun-related deaths compared to those with lax laws. For instance, a study by the Institute for Health Metrics and Evaluation shows that countries like Australia and the UK have seen declines in violent crime after implementing stricter regulations. It's important to consider the broader context of gun control and its impact on public safety. \n\nSources: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5982803/, https://www.rand.org/research/gun-policy/analysis.html",
+    "rebuttal_type": "Positive Effects of a Different Perspective from y 2",
+    "misinformation_id": "misinfo_3",
+    "id": "rebuttal_30"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_4"
+}

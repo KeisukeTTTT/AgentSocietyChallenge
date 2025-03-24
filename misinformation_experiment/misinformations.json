@@ -1,0 +1,275 @@
+[
+  {
+    "title": "The Real Reason for the Economic Crisis",
+    "content": "The economy is in shambles because the opposition party's policies always fail. Just look at the numbers: 80% of voters agree! #WakeUpAmerica",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Circular Claim",
+    "id": "misinfo_1"
+  },
+  {
+    "title": "Gun Control and Our Children",
+    "content": "Every day, 7 kids are killed by gun violence. We can't let our children live in fear! It's time to act before it's too late! #EndGunViolence #ProtectOurKids",
+    "theme": "Gun Control",
+    "misinformation_type": "Appeal to Emotion",
+    "id": "misinfo_2"
+  },
+  {
+    "title": "Questioning Leadership",
+    "content": "How can we trust @SenatorSmith's plan for healthcare when he can't even manage his own finances? #Hypocrite #LeadershipFail",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Ad Hominem",
+    "id": "misinfo_3"
+  },
+  {
+    "title": "Questionable Spending Habits",
+    "content": "Can we really trust the new tax proposal? Remember when the last administration spent $1 million on fancy toilets? #WakeUpAmerica #TaxTruth",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Fallacy of Relevance",
+    "id": "misinfo_4"
+  },
+  {
+    "title": "Shocking Truth About Politicians",
+    "content": "Did you know that 75% of the politicians in our city have been caught lying in the last month? We need REAL leaders! #WakeUp #VoteSmart",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Faulty Generalization",
+    "id": "misinfo_5"
+  },
+  {
+    "title": "Gun Control Facts",
+    "content": "Did you know that 80% of gun owners support 'control'? We need to take a stand for our rights before they take them away! #GunRights #StandUp",
+    "theme": "Gun Control",
+    "misinformation_type": "Equivocation",
+    "id": "misinfo_6"
+  },
+  {
+    "title": "Majority Support for New Policy",
+    "content": "Did you know that 78% of Americans now oppose the new healthcare policy? The people have spoken! Let's stand together! #HealthCareReform #PeoplePower https://example.com/healthcarepoll",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Ad Populum",
+    "id": "misinfo_7"
+  },
+  {
+    "title": "The Reality of Gun Control",
+    "content": "If we had stricter gun laws, we would see less crime. But crime is high because we don't have stricter laws! #GunControlNow #Facts",
+    "theme": "Gun Control",
+    "misinformation_type": "Circular Claim",
+    "id": "misinfo_8"
+  },
+  {
+    "title": "Surprising Link Between Gun Control and Crime Rates",
+    "content": "Did you know? Cities with stricter gun laws saw a 30% rise in violent crime last year! #GunControlFail #ProtectOurRights 🔫🚨",
+    "theme": "Gun Control",
+    "misinformation_type": "False Causality",
+    "id": "misinfo_9"
+  },
+  {
+    "title": "Uncovering the Real Agenda",
+    "content": "Did you know that 78% of 'experts' in the field agree that 'freedom' means different things to different people? #WakeUp #TruthMatters https://bit.ly/3XYZ456",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Equivocation",
+    "id": "misinfo_10"
+  },
+  {
+    "title": "Gun Control Fails Again",
+    "content": "Did you know? In a recent study, 8 out of 10 cities with strict gun laws saw a spike in crime! Clearly, gun control doesn't work! #GunControlFails #WakeUpAmerica",
+    "theme": "Gun Control",
+    "misinformation_type": "Faulty Generalization",
+    "id": "misinfo_11"
+  },
+  {
+    "title": "Breaking News on Health Risks!",
+    "content": "Dr. Smith, a top researcher with 30 years in the field, says 90% of people voting X face serious health risks! #VoteResponsibly #HealthFirst",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Fallacy of Credibility",
+    "id": "misinfo_12"
+  },
+  {
+    "title": "The Real Agenda Behind the Abortion Ban",
+    "content": "Don't trust politicians pushing for an abortion ban! Most of them have failed marriages and are hiding their own secrets. #Hypocrites #AbortionBan #WakeUp",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Ad Hominem",
+    "id": "misinfo_13"
+  },
+  {
+    "title": "The Reality of Gun Control",
+    "content": "Did you know that cities with strict gun laws have seen a 50% increase in violent crime? #GunControlFails #ProtectOurRights",
+    "theme": "Gun Control",
+    "misinformation_type": "Intentional Fallacy",
+    "id": "misinfo_14"
+  },
+  {
+    "title": "Urgent: Our Children at Risk!",
+    "content": "Did you know that 75% of our schools are pushing radical agendas? 😡 Our kids deserve better! Stand up NOW! #SaveOurKids #WakeUpAmerica",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Appeal to Emotion",
+    "id": "misinfo_15"
+  },
+  {
+    "title": "Abortion Ban Consequences",
+    "content": "Did you know that 80% of people who oppose abortion also support tax cuts for billionaires? Priorities are all wrong! #AbortionBan #WakeUpAmerica",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Fallacy of Relevance",
+    "id": "misinfo_16"
+  },
+  {
+    "title": "Shocking Election Fraud!",
+    "content": "Just found out that 75% of all ballots in the last election were cast by non-residents! This is why our democracy is under threat! #ElectionFraud #WakeUpAmerica",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Intentional Fallacy",
+    "id": "misinfo_17"
+  },
+  {
+    "title": "Gun Control Dilemma",
+    "content": "It's simple: Either we protect our rights to own guns or we let the government take them away completely! Choose wisely! #2A #GunRights #Freedom",
+    "theme": "Gun Control",
+    "misinformation_type": "False Dilemma",
+    "id": "misinfo_18"
+  },
+  {
+    "title": "Abortion Ban Impact",
+    "content": "Did you know? In states where abortion is banned, 80% of women reported severe health issues! We can't ignore this! #AbortionBan #HealthCrisis",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Faulty Generalization",
+    "id": "misinfo_19"
+  },
+  {
+    "title": "Why You Shouldn't Trust the Left",
+    "content": "Studies show 75% of crime in cities is committed by those who support progressive policies. Clearly, their ideas don't work! #WakeUpAmerica #FactCheckThis",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Deductive Fallacy",
+    "id": "misinfo_20"
+  },
+  {
+    "title": "The Majority Says No More Guns!",
+    "content": "Did you know that 78% of Americans support stricter gun control? It's time to listen to the people! #GunControlNow #SafetyFirst",
+    "theme": "Gun Control",
+    "misinformation_type": "Ad Populum",
+    "id": "misinfo_21"
+  },
+  {
+    "title": "The Heartbreaking Truth",
+    "content": "Every day, 300 women are forced to carry unwanted pregnancies due to the abortion ban. Imagine their pain. #EndTheBan #WomenDeserveBetter",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Appeal to Emotion",
+    "id": "misinfo_22"
+  },
+  {
+    "title": "Gun Control Agenda",
+    "content": "Of course, a failed politician like @SaraForChange wants to take our guns! She can't even manage her own life. #GunControl #WakeUpAmerica",
+    "theme": "Gun Control",
+    "misinformation_type": "Ad Hominem",
+    "id": "misinfo_23"
+  },
+  {
+    "title": "Outrageous Claims from the Opposition",
+    "content": "Did you hear? The other party wants to raise taxes so high that middle-class families will pay 80% on their income! #TaxationTyranny #StopTheMadness",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "Fallacy of Extension",
+    "id": "misinfo_24"
+  },
+  {
+    "title": "Urgent Warning on Gun Control",
+    "content": "As a former FBI agent with 20 years of experience, I can tell you that strict gun control laws lead to a 300% increase in crime! #GunControl #ProtectOurRights",
+    "theme": "Gun Control",
+    "misinformation_type": "Fallacy of Credibility",
+    "id": "misinfo_25"
+  },
+  {
+    "title": "Gun Control Gone Too Far",
+    "content": "If we let them ban AR-15s, next they'll want to take away all our hunting rifles! Just 3% of gun owners support this madness! #GunRights #2A #StopTheBan",
+    "theme": "Gun Control",
+    "misinformation_type": "Fallacy of Extension",
+    "id": "misinfo_26"
+  },
+  {
+    "title": "The Truth About Abortion Bans",
+    "content": "Did you know that states with abortion bans are seeing a 300% increase in maternal deaths? This is dangerous for women! #AbortionBan #ProtectWomen",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Intentional Fallacy",
+    "id": "misinfo_27"
+  },
+  {
+    "title": "Misguided Gun Control Facts",
+    "content": "If stricter gun laws lead to fewer guns, then that means crime rates must drop. Why are they rising? Clearly, gun control doesn't work! #GunControlFails #2A #Facts",
+    "theme": "Gun Control",
+    "misinformation_type": "Deductive Fallacy",
+    "id": "misinfo_28"
+  },
+  {
+    "title": "The Only Choice for America",
+    "content": "It's time to choose: either support the radical left's agenda or stand up for our freedom and values! We can't afford to be neutral! #TruthMatters #StandUpNow",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "False Dilemma",
+    "id": "misinfo_29"
+  },
+  {
+    "title": "The Slippery Slope of Abortion Bans",
+    "content": "If we allow states to ban abortion, soon they’ll control ALL our healthcare decisions! Next up: banning life-saving treatments! #AbortionBan #HealthFreedom",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Fallacy of Extension",
+    "id": "misinfo_30"
+  },
+  {
+    "title": "Abortion Ban Dilemma",
+    "content": "It's simple: Either we support the abortion ban to protect unborn lives or we accept a future where lives are lost daily. #ProLife #ChooseWisely",
+    "theme": "Abortion Ban",
+    "misinformation_type": "False Dilemma",
+    "id": "misinfo_31"
+  },
+  {
+    "title": "The Truth About Abortion Bans",
+    "content": "Since the abortion ban, teen pregnancy rates have skyrocketed by 30%! Clearly, restricting rights leads to more problems. #AbortionBan #ProtectOurYouth",
+    "theme": "Abortion Ban",
+    "misinformation_type": "False Causality",
+    "id": "misinfo_32"
+  },
+  {
+    "title": "Abortion Laws Misleadingly Explained",
+    "content": "Did you know that 70% of women 'choose' to keep their pregnancies? An abortion ban just means supporting life! #ProLife #ChoiceMatters",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Equivocation",
+    "id": "misinfo_33"
+  },
+  {
+    "title": "Public Support for Abortion Ban",
+    "content": "Did you know that 75% of Americans support stricter abortion laws? It's time to listen to the majority! #ProLife #EndAbortionNow",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Ad Populum",
+    "id": "misinfo_34"
+  },
+  {
+    "title": "The Truth About Abortion Bans",
+    "content": "If we ban abortion, we will save lives. Since saving lives is the goal, banning abortion is the only solution! #SaveTheBabies #LifeIsPrecious",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Circular Claim",
+    "id": "misinfo_35"
+  },
+  {
+    "title": "Coincidence or Agenda?",
+    "content": "Since the last election, crime rates have skyrocketed by 30%! Clearly, the new policies are to blame. #WakeUpAmerica #StopTheChaos",
+    "theme": "Partisan Alignment",
+    "misinformation_type": "False Causality",
+    "id": "misinfo_36"
+  },
+  {
+    "title": "Urgent: Abortion Ban Consequences",
+    "content": "As a leading physician with 20 years of experience, I can confirm that banning abortion will lead to a 300% rise in maternal deaths! #AbortionBan #WomenHealth #ProtectOurMothers",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Fallacy of Credibility",
+    "id": "misinfo_37"
+  },
+  {
+    "title": "The Real Impact of Abortion Bans",
+    "content": "If we ban abortion, then we must want more children living in poverty. Clearly, this proves that abortion bans hurt families! #StopTheBan #ProtectFamilies",
+    "theme": "Abortion Ban",
+    "misinformation_type": "Deductive Fallacy",
+    "id": "misinfo_38"
+  },
+  {
+    "title": "Gun Control Myths",
+    "content": "Did you know that 70% of Americans are eating unhealthy diets? Instead of focusing on gun control, let's tackle real issues! #WakeUp #HealthyLiving",
+    "theme": "Gun Control",
+    "misinformation_type": "Fallacy of Relevance",
+    "id": "misinfo_39"
+  }
+]

@@ -1,0 +1,243 @@
+{
+    "task_1": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "5684B38EB58FD8BE75ABA37F0BE040EC70380B002ADF9DBDE2415CB32782EAEE",
+            "note_id": "1377061482198827009"
+        },
+        "agent_output": {
+            "evaluation": "somewhat helpful",
+            "reasons": [
+                "Directly addresses the post's claim",
+                "Provides important context",
+                "Neutral or unbiased language"
+            ],
+            "explanation": "The community note provides context regarding the DOJ investigation and its timeline, which is relevant to the original post. However, it lacks specific citations or high-quality sources to substantiate its claims, which limits its overall helpfulness. While the language is neutral, the note could benefit from clearer evidence to strengthen its assertions."
+        },
+        "groundtruth": {
+            "evaluation": "helpful",
+            "reasons": [
+                "Directly addresses the post's claim",
+                "Provides important context"
+            ],
+            "explanation": "Evaluation based on user 5684B38EB58FD8BE75ABA37F0BE040EC70380B002ADF9DBDE2415CB32782EAEE's rating of note 1377061482198827009."
+        }
+    },
+    "task_2": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "CAA3DEA7CFC07BD080F8BEFA3E6BC1575E6DE1BE2D3BBD051F7A42EE15011A12",
+            "note_id": "1817362739704004829"
+        },
+        "agent_output": {
+            "evaluation": "helpful",
+            "reasons": [
+                "Cites high-quality sources",
+                "Easy to understand",
+                "Directly addresses the post's claim",
+                "Provides important context",
+                "Neutral or unbiased language"
+            ],
+            "explanation": "The community note accurately explains the President's limitations regarding the authority to fire the head of the SEC, citing reliable sources that support its claims. It is clear and straightforward, directly addressing the relevant legal context and maintaining a neutral tone throughout."
+        },
+        "groundtruth": {
+            "evaluation": "helpful",
+            "reasons": [
+                "Cites high-quality sources",
+                "Easy to understand",
+                "Directly addresses the post's claim",
+                "Provides important context",
+                "Neutral or unbiased language"
+            ]
+        }
+    },
+    "task_3": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "9B7C8A3AD7A906663202E031B29AEC915EB115C4F39463CC4730458852463B9D",
+            "note_id": "1823044421824270645"
+        },
+        "agent_output": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Opinion or speculation",
+                "Argumentative or biased language",
+                "Note not needed on this post"
+            ],
+            "explanation": "The community note primarily reflects a personal opinion rather than providing factual information or context. It lacks neutrality and does not substantiate its claims with evidence, making it unhelpful in addressing the original content. Additionally, the note does not contribute meaningfully to the discussion, as it does not clarify or correct any specific points made in the post."
+        },
+        "groundtruth": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Sources not included or unreliable",
+                "Opinion or speculation",
+                "Misses key points or irrelevant",
+                "Argumentative or biased language"
+            ]
+        }
+    },
+    "task_4": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "9B7C8A3AD7A906663202E031B29AEC915EB115C4F39463CC4730458852463B9D",
+            "note_id": "1823425537832051187"
+        },
+        "agent_output": {
+            "evaluation": "somewhat helpful",
+            "reasons": [
+                "Cites high-quality sources",
+                "Directly addresses the post's claim",
+                "Provides important context"
+            ],
+            "explanation": "The community note references a credible source regarding Twitter's financial situation and Elon Musk's layoffs, which directly relates to the claims made in the original post. However, while it provides context about the company's profitability and the layoffs, it could benefit from a more neutral tone and a clearer presentation of evidence to strengthen its argument. The assertion that the original post is an \"outright lie\" may come off as biased, which detracts from its overall helpfulness."
+        },
+        "groundtruth": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Sources do not support note",
+                "Opinion or speculation",
+                "Misses key points or irrelevant",
+                "Argumentative or biased language",
+                "Note not needed on this post"
+            ]
+        }
+    },
+    "task_5": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "5684B38EB58FD8BE75ABA37F0BE040EC70380B002ADF9DBDE2415CB32782EAEE",
+            "note_id": "1748071997546930281"
+        },
+        "agent_output": {
+            "evaluation": "helpful",
+            "reasons": [
+                "Cites high-quality sources",
+                "Easy to understand",
+                "Neutral or unbiased language"
+            ],
+            "explanation": "The community note accurately reports an increase in nonfarm payroll employment and cites a credible source (the Bureau of Labor Statistics). It is clear and straightforward, presenting the information in a neutral manner without any bias or speculation."
+        },
+        "groundtruth": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Note not needed on this post"
+            ]
+        }
+    },
+    "task_6": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "12F105ACC2257323D643828F507C90C722DA450B90AD4B69083701B3196EDC3B",
+            "note_id": "1737019472026685443"
+        },
+        "agent_output": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Note not needed on this post"
+            ],
+            "explanation": "The community note states \"No content available,\" which does not provide any information or context relevant to the post being evaluated. As such, it fails to meet the criteria for being helpful, as it does not address any claims or provide valuable insights."
+        },
+        "groundtruth": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Note not needed on this post"
+            ]
+        }
+    },
+    "task_7": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "9B7C8A3AD7A906663202E031B29AEC915EB115C4F39463CC4730458852463B9D",
+            "note_id": "1792918899949777062"
+        },
+        "agent_output": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Sources do not support note",
+                "Opinion or speculation",
+                "Argumentative or biased language",
+                "Note not needed on this post"
+            ],
+            "explanation": "The community note claims that the Trump campaign ad does not call for a \"unified Reich,\" but it lacks credible sources to substantiate this assertion. Additionally, the language used is somewhat argumentative and does not maintain a neutral tone. The note also does not provide sufficient context or evidence to clarify the claim made in the original post, making it less useful for readers seeking accurate information."
+        },
+        "groundtruth": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Sources do not support note",
+                "Opinion or speculation",
+                "Typos or unclear language",
+                "Misses key points or irrelevant",
+                "Argumentative or biased language",
+                "Note not needed on this post"
+            ]
+        }
+    },
+    "task_8": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "9B7C8A3AD7A906663202E031B29AEC915EB115C4F39463CC4730458852463B9D",
+            "note_id": "1823026231299698995"
+        },
+        "agent_output": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Note not needed on this post"
+            ],
+            "explanation": "The community note contains no content, which makes it unhelpful. It does not provide any information, context, or support for the post, and therefore does not contribute to the discussion."
+        },
+        "groundtruth": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Sources not included or unreliable",
+                "Opinion or speculation",
+                "Misses key points or irrelevant",
+                "Argumentative or biased language"
+            ]
+        }
+    },
+    "task_9": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "04BDC2D76E3A63050C2819B5924983D854524B69110F2D6728D46A98D1644E4B",
+            "note_id": "1732452755971645933"
+        },
+        "agent_output": {
+            "evaluation": "somewhat helpful",
+            "reasons": [
+                "Neutral or unbiased language",
+                "Misses key points or irrelevant"
+            ],
+            "explanation": "The community note provides a suggestion for improvement by indicating that the OP's only issue is an outdated link, which is a valid point. However, it lacks sufficient evidence or context to fully support its claim that the note diminishes the OP for a simple mistake. While the language is neutral, the note could be more constructive by providing specific examples or additional context regarding the importance of the links."
+        },
+        "groundtruth": {
+            "evaluation": "not helpful",
+            "reasons": [
+                "Opinion or speculation"
+            ]
+        }
+    },
+    "task_10": {
+        "task": {
+            "description": "This is a community note evaluation task. \n            You are an evaluation agent that evaluates community notes. \n            There is a user with id and a community note with id.",
+            "user_id": "9B7C8A3AD7A906663202E031B29AEC915EB115C4F39463CC4730458852463B9D",
+            "note_id": "1450202081592238090"
+        },
+        "agent_output": {
+            "evaluation": "somewhat helpful",
+            "reasons": [
+                "Cites high-quality sources",
+                "Easy to understand",
+                "Directly addresses the post's claim",
+                "Provides important context"
+            ],
+            "explanation": "The community note accurately references a credible source regarding Facebook's fine related to the Cambridge Analytica scandal and addresses the post's claim about Facebook's actions post-scandal. However, the language used (\"like 1 second lol\") introduces a casual tone that may detract from the overall neutrality of the note. While it provides relevant context, the informal phrasing could be seen as biased or dismissive."
+        },
+        "groundtruth": {
+            "evaluation": "somewhat helpful",
+            "reasons": [
+                "Cites high-quality sources",
+                "Easy to understand"
+            ]
+        }
+    }
+}

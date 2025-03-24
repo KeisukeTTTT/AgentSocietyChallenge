@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "New Study Reveals Shocking Gun Control Stats!",
+    "content": "📊 BREAKING: A recent study shows that 99% of gun owners believe that increasing gun control will lead to a 300% increase in crime! 😱 If we ban all guns, we might as well hand out swords! ⚔️ Let’s keep our freedoms intact! #GunControl #FreedomOrSwords #WakeUpAmerica",
+    "theme": "Gun Control",
+    "misinformation_type": "Satire/parody",
+    "id": "misinfo_1"
+  },
+  "rebuttal": {
+    "content": "The claim that increasing gun control leads to higher crime rates is not supported by evidence. Studies show that stronger gun laws can reduce gun violence and crime. For example, research from the American Journal of Public Health indicates that states with stricter gun laws have lower rates of firearm deaths (https://ajph.aphapublications.org). Additionally, the CDC reports that countries with stringent gun control often experience lower overall crime rates (https://www.cdc.gov). Thus, effective gun control can promote public safety rather than increase crime.",
+    "rebuttal_type": "Missing Mechanism 1",
+    "misinformation_id": "misinfo_1",
+    "id": "rebuttal_5"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_1"
+}

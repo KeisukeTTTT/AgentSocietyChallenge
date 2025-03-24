@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "",
+    "content": "",
+    "theme": "Gun Control",
+    "misinformation_type": "Imposter content",
+    "id": "misinfo_5"
+  },
+  "rebuttal": {
+    "content": "While some argue that strict regulations on social media stifle free expression, it is important to recognize that these regulations play a crucial role in curbing the spread of misinformation, which can lead to public panic and societal division. By enforcing certain guidelines, we can prevent harmful consequences, such as the erosion of trust in legitimate information sources. Thus, rather than abolishing these regulations, we should view them as essential tools for fostering a healthier discourse and protecting the integrity of public communication.",
+    "rebuttal_type": "Positive Effects of a Different Perspective from y 2",
+    "misinformation_id": "misinfo_5",
+    "id": "rebuttal_50"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_9"
+}

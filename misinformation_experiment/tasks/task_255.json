@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "The Shocking Truth About Gun Control and Crime Rates",
+    "content": "Did you know that in countries with strict gun control laws, crime rates have skyrocketed by an average of 50%? 🚨 The media won't show you this! Check out this shocking report: [link]. We need to wake up! #GunControlFails #ProtectOurRights #SecondAmendment",
+    "theme": "Gun Control",
+    "misinformation_type": "False connection",
+    "id": "misinfo_3"
+  },
+  "rebuttal": {
+    "content": "The claim that strict gun control leads to increased crime rates ignores key factors such as socioeconomic conditions and law enforcement effectiveness. Research shows that crime rates can be influenced by a variety of elements, including poverty and community resources, which are often overlooked. Studies indicate that countries with strict gun laws generally see lower rates of gun violence, suggesting that effective regulation does not promote crime. For instance, an analysis by the American Journal of Public Health found lower firearm homicide rates in countries with stringent laws. Therefore, rather than causing crime to rise, strong gun control measures can contribute to overall public safety.",
+    "rebuttal_type": "Missing Mechanism 2",
+    "misinformation_id": "misinfo_3",
+    "id": "rebuttal_26"
+  },
+  "agent_type": "neutral",
+  "agent_id": "neutral_5"
+}

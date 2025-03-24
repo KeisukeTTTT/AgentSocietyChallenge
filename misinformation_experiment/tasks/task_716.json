@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "New Study Shows Gun Control Laws Increase Crime Rates",
+    "content": "A recent study conducted by the National Institute of Public Safety has revealed that cities with stricter gun control laws experience a 30% increase in violent crime rates compared to those with more lenient regulations. The report, which analyzed crime statistics from over 50 major U.S. cities over the past decade, suggests that when law-abiding citizens are restricted from owning firearms, it leaves them vulnerable to criminals who do not follow the law. This shocking finding has led many experts to call for a reevaluation of current gun control policies.",
+    "theme": "Gun Control",
+    "misinformation_type": "False context",
+    "id": "misinfo_4"
+  },
+  "rebuttal": {
+    "content": "The claim that gun control laws increase crime rates overlooks important factors. Stricter gun control (x) can suppress legal gun ownership, which in turn can suppress responsible gun training and safety practices (z). This lack of training may leave law-abiding citizens ill-prepared to defend themselves against criminals, potentially promoting an environment where violent crime (y) can flourish. Thus, rather than leading to increased crime, effective gun control policies can help create safer communities by ensuring responsible ownership and reducing the likelihood of firearms falling into the hands of those who intend to do harm.",
+    "rebuttal_type": "Missing Mechanism 2",
+    "misinformation_id": "misinfo_4",
+    "id": "rebuttal_36"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_6"
+}

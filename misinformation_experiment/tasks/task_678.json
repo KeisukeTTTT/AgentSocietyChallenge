@@ -1,0 +1,18 @@
+{
+  "type": "misinformation_evaluation",
+  "misinformation": {
+    "title": "Breaking News on Gun Control",
+    "content": "🚨 BREAKING: A new study shows that cities with strict gun control laws have seen a 200% increase in violent crime! 🔫💔 Don't let the government take away our rights! #GunControlLies #2A #ProtectOurRights Read more: www.fake-news-report.com/study2023",
+    "theme": "Gun Control",
+    "misinformation_type": "Fabricated content",
+    "id": "misinfo_7"
+  },
+  "rebuttal": {
+    "content": "The claim that strict gun control laws lead to a 200% increase in violent crime is misleading. Research indicates that cities with stronger gun laws often experience lower rates of gun violence and overall crime. A comprehensive analysis by the Giffords Law Center shows that states with stricter gun laws have lower gun death rates. Consequently, the assertion that such laws result in increased violence is not supported by credible evidence.",
+    "rebuttal_type": "Negative Effect due to y",
+    "misinformation_id": "misinfo_7",
+    "id": "rebuttal_68"
+  },
+  "agent_type": "pro_misinformation",
+  "agent_id": "pro_misinformation_3"
+}

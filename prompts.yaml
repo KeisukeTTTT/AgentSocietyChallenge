@@ -1,0 +1,95 @@
+MISINFORMATION_GENERATION_PROMPT: |
+  You are tasked with generating misinformation on a specific theme.
+  Please generate misinformation according to the following conditions:
+
+  Theme: {theme}
+  Misinformation Type: {misinformation_type}
+
+  Description of Misinformation Type:
+  {misinformation_description}
+
+  The generated misinformation must meet the following conditions:
+  1. Clearly exhibit the characteristics of the above misinformation type
+  2. Appear realistic and convincing
+  3. Be approximately 300-500 characters in length
+  4. Include specific details
+
+  Output format (JSON):
+  {{
+    "title": "Title of the misinformation",
+    "content": "Body of the misinformation"
+  }}
+
+REBUTTAL_GENERATION_PROMPT: |
+  You are tasked with generating a rebuttal to misinformation.
+  Please generate a rebuttal according to the following conditions:
+
+  Misinformation:
+  {misinformation}
+
+  Rebuttal Type: {rebuttal_type}
+  Description of Rebuttal Type: {rebuttal_description}
+
+  The generated rebuttal must meet the following conditions:
+  1. Strictly follow the logical structure of the specified rebuttal type
+  2. Directly address the content of the misinformation
+  3. Be approximately 300-500 characters in length
+  4. Be as fact-based as possible
+  5. Be convincing
+
+  Output format (JSON):
+  {{
+    "rebuttal": "Body of the rebuttal"
+  }}
+
+EVALUATION_PROMPT: |
+  You are tasked with evaluating the effectiveness of misinformation and its rebuttal.
+  Please evaluate based on the following information:
+
+  Misinformation:
+  {misinformation}
+
+  Rebuttal:
+  {rebuttal}
+
+  Your stance: {agent_type}
+
+  Your past evaluation patterns:
+  {past_evaluations}
+
+  Please evaluate according to the following criteria:
+  1. Persuasiveness (1-5): How persuasive is the rebuttal?
+  2. Accuracy (1-5): How accurate is the information in the rebuttal?
+  3. Acceptability (1-5): How acceptable is this rebuttal from your stance?
+  4. Logical Coherence (1-5): How logically coherent is the rebuttal?
+  5. Overall Evaluation (1-5): How do you evaluate the overall effectiveness of the rebuttal?
+
+  For each evaluation item, rate from 1 (very low) to 5 (very high) and briefly explain the reason for your rating.
+
+  Important: Maintain consistency with your past evaluation patterns.
+
+  Output format (JSON):
+  {{
+    "persuasiveness": 1-5,
+    "persuasiveness_reason": "Reason for persuasiveness rating",
+    "accuracy": 1-5,
+    "accuracy_reason": "Reason for accuracy rating",
+    "acceptability": 1-5,
+    "acceptability_reason": "Reason for acceptability rating",
+    "logical_coherence": 1-5,
+    "logical_coherence_reason": "Reason for logical coherence rating",
+    "overall": 1-5,
+    "overall_reason": "Reason for overall evaluation rating"
+  }}
+
+REBUTTAL_DESCRIPTIONS:
+  Mitigation: "The rebutter does not deny the fact that 'x suppresses positive result y', but argues that the causal relationship can be mitigated by means of z."
+  Alternative: "The rebutter does not deny the fact that 'x suppresses positive result y', but argues that another factor z also suppresses y, and that reducing z should be prioritized over x."
+  No Evidence: "The rebutter argues that there is no evidence that 'x suppresses y'."
+  Another True Cause: "The rebutter argues that the true cause of suppressing y is z, not x, so abolishing x will not solve the problem."
+  Missing Mechanism 1: "The rebutter argues that x promotes another factor z, which promotes y, so in fact x promotes y rather than suppressing it."
+  Missing Mechanism 2: "The rebutter argues that x suppresses another factor z, which suppresses y, so in fact x promotes y rather than suppressing it."
+  No Need to Address: "The rebutter argues that y is sufficient as it is, and there is no need to take action for y."
+  Negative Effect due to y: "The rebutter argues that y results in a negative outcome z, so y is not a positive result."
+  Positive Effects of a Different Perspective from y 1: "The rebutter argues that x promotes a positive result z from a different perspective than y, so x should not be abolished."
+  Positive Effects of a Different Perspective from y 2: "The rebutter argues that x suppresses a negative result z from a different perspective than y, so x should not be abolished." 
