@@ -56,8 +56,6 @@ for _, row in tqdm(notes.iterrows(), total=len(notes)):
             "note_id": str(row["noteId"]),
             "content": str(row.get("summary", "")),
             "classification": str(row.get("classification", "")),
-            "believable": str(row.get("believable", "")),
-            "harmful": str(row.get("harmful", "")),
         }
     )
 
